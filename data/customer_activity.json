@@ -1,0 +1,38 @@
+[
+  {
+    "tenant_id": "tenant-globex",
+    "customer_name": "Globex Corp",
+    "tier": "Enterprise",
+    "monthly_subscription_arr": 240000.00,
+    "api_calls_monthly": 18500000,
+    "active_dev_hours": 320,
+    "assigned_product": "Payment Gateway"
+  },
+  {
+    "tenant_id": "tenant-acme-corp",
+    "customer_name": "Acme Industries",
+    "tier": "Enterprise",
+    "monthly_subscription_arr": 180000.00,
+    "api_calls_monthly": 12400000,
+    "active_dev_hours": 210,
+    "assigned_product": "Analytics Engine"
+  },
+  {
+    "tenant_id": "tenant-stark-ind",
+    "customer_name": "Stark Industries",
+    "tier": "Scale",
+    "monthly_subscription_arr": 95000.00,
+    "api_calls_monthly": 8100000,
+    "active_dev_hours": 140,
+    "assigned_product": "Analytics Engine"
+  },
+  {
+    "tenant_id": "shared-core",
+    "customer_name": "Multi-Tenant Platform Base",
+    "tier": "Internal Infrastructure",
+    "monthly_subscription_arr": 0.00,
+    "api_calls_monthly": 45000000,
+    "active_dev_hours": 720,
+    "assigned_product": "Auth Platform"
+  }
+]

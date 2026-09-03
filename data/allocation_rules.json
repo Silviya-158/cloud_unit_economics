@@ -1,0 +1,36 @@
+{
+  "version": "2.4.0",
+  "last_updated": "2026-09-03T12:00:00Z",
+  "updated_by": "finops-admin@acmecompany.com",
+  "tier_1_direct_tags": ["product_line", "feature_id", "tenant_id", "env"],
+  "tier_2_ephemeral_telemetry": {
+    "enabled": true,
+    "matching_keys": ["node_ip", "pod_name", "resource_id"],
+    "join_window_minutes": 120,
+    "confidence_threshold": 0.85
+  },
+  "tier_3_pro_rata_shared": [
+    {
+      "service_name": "AWS-NATGateway",
+      "allocation_method": "API_VOLUME_WEIGHTED",
+      "distribution": {
+        "Payment Gateway": 0.52,
+        "Auth Platform": 0.28,
+        "Analytics Engine": 0.20
+      }
+    },
+    {
+      "service_name": "AmazonEKS-ControlPlane",
+      "allocation_method": "CPU_HOURS_WEIGHTED",
+      "distribution": {
+        "Payment Gateway": 0.45,
+        "Auth Platform": 0.35,
+        "Analytics Engine": 0.20
+      }
+    }
+  ],
+  "unallocated_quarantine_rules": {
+    "flag_if_unallocated_above_percentage": 5.0,
+    "alert_channel": "#finops-cost-anomalies"
+  }
+}

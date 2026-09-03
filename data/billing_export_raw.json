@@ -1,0 +1,248 @@
+[
+  {
+    "billing_record_id": "rec-aws-ec2-1001",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonEC2",
+    "resource_id": "i-0a81b2c3d4e5f6789",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 42500.00,
+    "usage_amount": 720.0,
+    "usage_unit": "Hrs",
+    "tags": {
+      "env": "production",
+      "owner": "checkout-squad",
+      "product_line": "Payment Gateway",
+      "feature_id": "Instant Payouts",
+      "tenant_id": "shared-prod"
+    }
+  },
+  {
+    "billing_record_id": "rec-aws-eks-1002",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonEKS-Pods",
+    "resource_id": "10.0.12.84",
+    "usage_start_time": "2026-09-02T10:15:00Z",
+    "usage_end_time": "2026-09-02T11:45:00Z",
+    "unblended_cost": 380.50,
+    "usage_amount": 1.5,
+    "usage_unit": "Hrs",
+    "tags": {}
+  },
+  {
+    "billing_record_id": "rec-aws-eks-1003",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonEKS-Pods",
+    "resource_id": "10.0.14.210",
+    "usage_start_time": "2026-09-03T08:00:00Z",
+    "usage_end_time": "2026-09-03T14:30:00Z",
+    "unblended_cost": 1420.00,
+    "usage_amount": 6.5,
+    "usage_unit": "Hrs",
+    "tags": {}
+  },
+  {
+    "billing_record_id": "rec-aws-rds-1004",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonRDS",
+    "resource_id": "db-aurora-pg-main",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 31200.00,
+    "usage_amount": 720.0,
+    "usage_unit": "Hrs",
+    "tags": {
+      "env": "production",
+      "owner": "platform-data",
+      "product_line": "Auth Platform",
+      "feature_id": "OAuth SSO",
+      "tenant_id": "shared-core"
+    }
+  },
+  {
+    "billing_record_id": "rec-gcp-bigquery-1005",
+    "provider": "GCP",
+    "account_id": "gcp-analytics-prod",
+    "service_name": "BigQuery",
+    "resource_id": "analytics-event-stream",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 18900.00,
+    "usage_amount": 420.0,
+    "usage_unit": "TB Query",
+    "tags": {
+      "env": "production",
+      "owner": "data-squad",
+      "product_line": "Analytics Engine",
+      "feature_id": "Realtime Pipeline",
+      "tenant_id": "tenant-acme-corp"
+    }
+  },
+  {
+    "billing_record_id": "rec-aws-nat-1006",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AWS-NATGateway",
+    "resource_id": "nat-0987654321fedcba",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 12400.00,
+    "usage_amount": 3100.0,
+    "usage_unit": "GB Egress",
+    "tags": {
+      "env": "shared-infra"
+    }
+  },
+  {
+    "billing_record_id": "rec-aws-eks-ctrl-1007",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonEKS-ControlPlane",
+    "resource_id": "eks-prod-us-east-1",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 8600.00,
+    "usage_amount": 720.0,
+    "usage_unit": "Hrs",
+    "tags": {}
+  },
+  {
+    "billing_record_id": "rec-aws-ec2-dev-1008",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonEC2",
+    "resource_id": "i-dev-abandoned-99",
+    "usage_start_time": "2026-09-10T00:00:00Z",
+    "usage_end_time": "2026-09-13T00:00:00Z",
+    "unblended_cost": 2150.00,
+    "usage_amount": 72.0,
+    "usage_unit": "Hrs",
+    "tags": {}
+  },
+  {
+    "billing_record_id": "rec-aws-egress-1009",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AWS-DataTransfer-Out",
+    "resource_id": "untracked-egress-region-eu",
+    "usage_start_time": "2026-09-15T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 5240.00,
+    "usage_amount": 1048.0,
+    "usage_unit": "GB",
+    "tags": {}
+  },
+  {
+    "billing_record_id": "rec-aws-s3-1010",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonS3",
+    "resource_id": "legacy-log-bucket-2021",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 2740.00,
+    "usage_amount": 54800.0,
+    "usage_unit": "GB-Month",
+    "tags": {}
+  },
+  {
+    "billing_record_id": "rec-aws-ec2-ri-1011",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonEC2-ReservedCapacity",
+    "resource_id": "ri-unused-capacity-slot",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 3500.00,
+    "usage_amount": 720.0,
+    "usage_unit": "Hrs",
+    "tags": {}
+  },
+  {
+    "billing_record_id": "rec-aws-ec2-1012",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonEC2",
+    "resource_id": "i-09988776655443322",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 29800.00,
+    "usage_amount": 720.0,
+    "usage_unit": "Hrs",
+    "tags": {
+      "env": "production",
+      "owner": "fintech-squad",
+      "product_line": "Payment Gateway",
+      "feature_id": "Multi-Currency Settlement",
+      "tenant_id": "tenant-globex"
+    }
+  },
+  {
+    "billing_record_id": "rec-aws-eks-1013",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonEKS-Pods",
+    "resource_id": "10.0.18.55",
+    "usage_start_time": "2026-09-04T14:00:00Z",
+    "usage_end_time": "2026-09-04T18:30:00Z",
+    "unblended_cost": 950.00,
+    "usage_amount": 4.5,
+    "usage_unit": "Hrs",
+    "tags": {}
+  },
+  {
+    "billing_record_id": "rec-aws-eks-1014",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AmazonEKS-Pods",
+    "resource_id": "10.0.22.91",
+    "usage_start_time": "2026-09-05T09:00:00Z",
+    "usage_end_time": "2026-09-05T17:00:00Z",
+    "unblended_cost": 1680.00,
+    "usage_amount": 8.0,
+    "usage_unit": "Hrs",
+    "tags": {}
+  },
+  {
+    "billing_record_id": "rec-gcp-cloudsql-1015",
+    "provider": "GCP",
+    "account_id": "gcp-prod-01",
+    "service_name": "CloudSQL",
+    "resource_id": "gcp-db-auth-replica",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 21800.00,
+    "usage_amount": 720.0,
+    "usage_unit": "Hrs",
+    "tags": {
+      "env": "production",
+      "owner": "sec-team",
+      "product_line": "Auth Platform",
+      "feature_id": "Biometric WebAuthn",
+      "tenant_id": "shared-core"
+    }
+  },
+  {
+    "billing_record_id": "rec-aws-lambda-1016",
+    "provider": "AWS",
+    "account_id": "123456789012",
+    "service_name": "AWSLambda",
+    "resource_id": "arn:aws:lambda:us-east-1:123456789012:function:realtime-webhook-ingest",
+    "usage_start_time": "2026-09-01T00:00:00Z",
+    "usage_end_time": "2026-09-30T23:59:59Z",
+    "unblended_cost": 14750.00,
+    "usage_amount": 42000000.0,
+    "usage_unit": "Invocations",
+    "tags": {
+      "env": "production",
+      "owner": "data-squad",
+      "product_line": "Analytics Engine",
+      "feature_id": "Realtime Pipeline",
+      "tenant_id": "tenant-stark-ind"
+    }
+  }
+]
