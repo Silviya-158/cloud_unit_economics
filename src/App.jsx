@@ -89,6 +89,9 @@ export default function App() {
           <ProductView
             customerActivity={customerActivityData}
             productBreakdown={allocationResult.product_breakdown}
+            featureUnitEconomics={allocationResult.feature_unit_economics}
+            customerUnitEconomics={allocationResult.customer_unit_economics}
+            productKPIs={allocationResult.product_kpis}
           />
         )}
 

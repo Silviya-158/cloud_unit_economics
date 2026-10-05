@@ -32,5 +32,42 @@
   "unallocated_quarantine_rules": {
     "flag_if_unallocated_above_percentage": 5.0,
     "alert_channel": "#finops-cost-anomalies"
+  },
+  "feature_usage_metrics": {
+    "Instant Payouts": {
+      "product": "Payment Gateway",
+      "activity_volume": 1200000,
+      "unit_name": "tx",
+      "volume_label": "1.2M Transactions",
+      "display_name": "Instant Payouts"
+    },
+    "Multi-Currency Settlement": {
+      "product": "Payment Gateway",
+      "activity_volume": 850000,
+      "unit_name": "fx",
+      "volume_label": "850K Settlement Events",
+      "display_name": "Multi-Currency FX"
+    },
+    "Biometric WebAuthn": {
+      "product": "Auth Platform",
+      "activity_volume": 4500000,
+      "unit_name": "auth",
+      "volume_label": "4.5M Auth Requests",
+      "display_name": "Biometric WebAuthn"
+    },
+    "Realtime Pipeline": {
+      "product": "Analytics Engine",
+      "activity_volume": 420,
+      "unit_name": "TB",
+      "volume_label": "420 TB Query + Webhooks",
+      "display_name": "Realtime Pipeline"
+    },
+    "OAuth SSO": {
+      "product": "Auth Platform",
+      "activity_volume": 12000000,
+      "unit_name": "token",
+      "volume_label": "12M Token Validations",
+      "display_name": "OAuth SSO"
+    }
   }
 }

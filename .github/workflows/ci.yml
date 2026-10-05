@@ -1,0 +1,37 @@
+name: CI - Unit Economics Engine & Edge Case Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test-and-validate:
+    name: Clean Checkout Verification & Edge Case Benchmark
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout repository from clean state
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Clean dependency installation
+        run: npm install
+
+      - name: Run automated engine and reconciliation test suite
+        run: npm test
+
+      - name: Verify 5 FinOps edge cases (EDGE-01 to EDGE-05) via validator
+        run: npm run validate
+
+      - name: Verify production Vite build compilation
+        run: npm run build

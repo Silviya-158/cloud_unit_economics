@@ -1,4 +1,9 @@
-# Sensitive data and environment variables
+# Node & Build artifacts
+node_modules/
+dist/
+package-lock.json
+
+# Environment variables & secrets
 .env
 .env.*
 *.env
@@ -6,11 +11,6 @@ credentials.json
 secrets.json
 *.pem
 *.key
-
-# Jupyter Notebook checkpoints and history
-.ipynb_checkpoints/
-*/.ipynb_checkpoints/
-.virtual_documents/
 
 # Python environment and compilation
 __pycache__/
@@ -20,10 +20,11 @@ __pycache__/
 env/
 venv/
 .venv/
-pip-log.txt
-pip-delete-this-directory.txt
+.pytest_cache/
 
-# IDE settings
+# IDE & OS settings
 .vscode/
 .idea/
 .DS_Store
+*.log
+

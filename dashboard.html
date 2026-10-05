@@ -284,29 +284,61 @@
             )}
 
             {/* PRODUCT VIEW */}
-            {activeTab === 'product' && (
-              <div className="space-y-6">
-                <div className="glass-card p-6 rounded-2xl border border-slate-800">
-                  <h3 className="text-sm font-semibold text-slate-200 mb-4">Feature Unit Economics & Consumption Cost Matrix</h3>
-                  <table className="w-full text-left text-xs font-mono">
-                    <thead>
-                      <tr className="border-b border-slate-800 text-slate-400 bg-slate-900/40">
-                        <th className="py-3 px-4">Feature Name</th>
-                        <th className="py-3 px-4">Product Line</th>
-                        <th className="py-3 px-4">Monthly Cost</th>
-                        <th className="py-3 px-4">Unit Metric</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-800/60">
-                      <tr><td className="py-3 px-4 font-bold text-cyan-300">Instant Payouts</td><td className="py-3 px-4">Payment Gateway</td><td className="py-3 px-4 font-bold">$42,500.00</td><td className="py-3 px-4 text-emerald-400">$0.035 / transaction</td></tr>
-                      <tr><td className="py-3 px-4 font-bold text-cyan-300">Multi-Currency FX</td><td className="py-3 px-4">Payment Gateway</td><td className="py-3 px-4 font-bold">$29,800.00</td><td className="py-3 px-4 text-emerald-400">$0.035 / fx event</td></tr>
-                      <tr><td className="py-3 px-4 font-bold text-cyan-300">Biometric WebAuthn</td><td className="py-3 px-4">Auth Platform</td><td className="py-3 px-4 font-bold">$21,800.00</td><td className="py-3 px-4 text-emerald-400">$0.0048 / auth</td></tr>
-                      <tr><td className="py-3 px-4 font-bold text-cyan-300">Realtime Pipeline</td><td className="py-3 px-4">Analytics Engine</td><td className="py-3 px-4 font-bold">$33,650.00</td><td className="py-3 px-4 text-emerald-400">$80.11 / TB Query</td></tr>
-                    </tbody>
-                  </table>
+            {activeTab === 'product' && (() => {
+              const featureDefs = [
+                { name: 'Instant Payouts', product: 'Payment Gateway', volume: 1200000, unit: 'transaction' },
+                { name: 'Multi-Currency Settlement', displayName: 'Multi-Currency FX', product: 'Payment Gateway', volume: 850000, unit: 'fx event' },
+                { name: 'Biometric WebAuthn', product: 'Auth Platform', volume: 4500000, unit: 'auth' },
+                { name: 'Realtime Pipeline', product: 'Analytics Engine', volume: 420, unit: 'TB Query' },
+                { name: 'OAuth SSO', product: 'Auth Platform', volume: 12000000, unit: 'token' }
+              ];
+              const dynamicFeatures = featureDefs.map(f => {
+                const cost = records.filter(r => r.attributed_feature === f.name).reduce((sum, r) => sum + r.unblended_cost, 0);
+                const unitCost = f.volume > 0 ? cost / f.volume : 0;
+                return {
+                  name: f.displayName || f.name,
+                  product: f.product,
+                  cost: cost,
+                  unit_cost: `$${unitCost >= 1 ? unitCost.toFixed(2) : unitCost.toFixed(4)} / ${f.unit}`
+                };
+              });
+
+              return (
+                <div className="space-y-6">
+                  <div className="glass-card p-6 rounded-2xl border border-slate-800">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <h3 className="text-sm font-semibold text-slate-200">Feature Unit Economics & Consumption Cost Matrix</h3>
+                        <p className="text-xs text-slate-400 mt-0.5">Dynamically derived from attributed billing records & transaction volume</p>
+                      </div>
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                        Engine Derived
+                      </span>
+                    </div>
+                    <table className="w-full text-left text-xs font-mono">
+                      <thead>
+                        <tr className="border-b border-slate-800 text-slate-400 bg-slate-900/40">
+                          <th className="py-3 px-4">Feature Name</th>
+                          <th className="py-3 px-4">Product Line</th>
+                          <th className="py-3 px-4">Monthly Cost</th>
+                          <th className="py-3 px-4">Derived Unit Metric</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-800/60">
+                        {dynamicFeatures.map((f, i) => (
+                          <tr key={i}>
+                            <td className="py-3 px-4 font-bold text-cyan-300">{f.name}</td>
+                            <td className="py-3 px-4">{f.product}</td>
+                            <td className="py-3 px-4 font-bold">${f.cost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                            <td className="py-3 px-4 text-emerald-400">{f.unit_cost}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             {/* RECONCILIATION & ROLLBACK */}
             {activeTab === 'reconciliation' && (

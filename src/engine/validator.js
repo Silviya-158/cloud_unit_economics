@@ -14,13 +14,21 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export function runValidationSuite() {
-  const dataDir = path.resolve(__dirname, '../../data');
-  
-  const rawBilling = JSON.parse(fs.readFileSync(path.join(dataDir, 'billing_export_raw.json'), 'utf-8'));
-  const telemetry = JSON.parse(fs.readFileSync(path.join(dataDir, 'usage_telemetry.json'), 'utf-8'));
-  const rules = JSON.parse(fs.readFileSync(path.join(dataDir, 'allocation_rules.json'), 'utf-8'));
-  const customer = JSON.parse(fs.readFileSync(path.join(dataDir, 'customer_activity.json'), 'utf-8'));
+export function runValidationSuite(customData) {
+  let rawBilling, telemetry, rules, customer;
+
+  if (customData) {
+    rawBilling = customData.rawBilling;
+    telemetry = customData.telemetry;
+    rules = customData.rules;
+    customer = customData.customer;
+  } else {
+    const dataDir = path.resolve(__dirname, '../../data');
+    rawBilling = JSON.parse(fs.readFileSync(path.join(dataDir, 'billing_export_raw.json'), 'utf-8'));
+    telemetry = JSON.parse(fs.readFileSync(path.join(dataDir, 'usage_telemetry.json'), 'utf-8'));
+    rules = JSON.parse(fs.readFileSync(path.join(dataDir, 'allocation_rules.json'), 'utf-8'));
+    customer = JSON.parse(fs.readFileSync(path.join(dataDir, 'customer_activity.json'), 'utf-8'));
+  }
 
   const result = runAllocationPipeline(rawBilling, telemetry, rules, customer);
 
@@ -67,6 +75,7 @@ export function runValidationSuite() {
   return {
     timestamp: new Date().toISOString(),
     overall_status: allPassed ? "ALL_PASS" : "FAILURES_DETECTED",
+    all_passed: allPassed,
     tests: tests,
     summary: result.summary
   };
@@ -89,4 +98,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   console.log(`Summary Status: ${validation.overall_status}`);
   console.log(`Attribution Rate: ${validation.summary.attribution_rate_percent}%`);
   console.log("==================================================================");
+
+  if (!validation.all_passed) {
+    process.exit(1);
+  }
 }
